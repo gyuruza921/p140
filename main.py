@@ -23,8 +23,35 @@ class Hand():
 # 処理部
 # ランダムにマシンの出す手を決める
 def machin_hand():
-    # result = Hand("CPU", random.randint(0, 2))
     return Hand("CPU", random.randint(0, 2))
+
+# 両者の出した手を表示する
+def show_hands(player1, player2):
+    
+    # player1の名前と出した手を表示
+    hand1 = ""
+    # player1の出した手を代入する
+    if player1.hand == 0:
+        hand1 = "グー"
+    elif player1.hand == 1:
+        hand1 = "チョキ"
+    elif player1.hand == 2:
+        hand1 = "パー"
+    # 結果を表示
+    print(f"{player1.name:s}は{hand1:s}を出しました")
+
+    # player2の名前と出した手を表示
+    hand2 = ""
+    # player2の出した手を代入する
+    if player2.hand == 0:
+        hand2 = "グー"
+    elif player2.hand == 1:
+        hand2 = "チョキ"
+    elif player2.hand == 2:
+        hand2 = "パー"
+    # 結果を表示  
+    print(f"{player2.name:s}は{hand2:s}を出しました")
+
 
 # プレイヤーとマシンの出した手を比較
 def referee(player1, player2):
@@ -71,6 +98,9 @@ player = Hand(player_name, player_hand)
 
 # マシンの出す手を選択
 machin = machin_hand()
+
+# 両者の出した手を表示
+show_hands(player, machin)
 
 # 判定と結果の表示
 referee(player, machin)
